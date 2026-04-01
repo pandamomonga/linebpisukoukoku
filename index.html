@@ -5,480 +5,527 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>頭の中のごちゃごちゃ整理室｜三条健康堂</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700&family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f7f5f0;
-    --bg-warm: #f0ece3;
-    --text: #3a3530;
-    --text-light: #6b6560;
-    --accent: #5b8a72;
-    --accent-light: #e8f0eb;
-    --accent-dark: #3d6b54;
-    --warm: #c4956a;
-    --warm-light: #f5ede5;
-    --white: #fffdf9;
-    --shadow: rgba(58, 53, 48, 0.08);
+    --bg: #f6f3ee;
+    --bg-card: #fefcf9;
+    --bg-herb: #f0ebe2;
+    --bg-label: #e8e2d6;
+    --text: #2e2a25;
+    --text-mid: #5c5650;
+    --text-light: #8a837b;
+    --green: #4a6741;
+    --green-light: #e9efe7;
+    --green-pale: #f3f6f2;
+    --brown: #8b6f4e;
+    --brown-light: #c9a97a;
+    --cream: #f5f0e6;
+    --line: #d4cec4;
+    --white: #fffdf8;
+    --rx-bg: #faf8f3;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html {
-    font-size: 16px;
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-  }
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
   body {
-    font-family: 'Zen Maru Gothic', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.85;
+    line-height: 1.9;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    padding: 3rem 1.5rem;
-    background: linear-gradient(170deg, #e8e4db 0%, #f0ece3 40%, #e8f0eb 100%);
-    overflow: hidden;
   }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -20%;
-    right: -30%;
-    width: 80vw;
-    height: 80vw;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(91,138,114,0.08) 0%, transparent 70%);
-    animation: float 8s ease-in-out infinite;
+  /* ── HEADER ── */
+  .header {
+    padding: 1rem 1.5rem 0.5rem;
   }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -10%;
-    left: -20%;
-    width: 60vw;
-    height: 60vw;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(196,149,106,0.06) 0%, transparent 70%);
-    animation: float 10s ease-in-out infinite reverse;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(10px, -15px); }
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 380px;
-  }
-
-  .hero-icon {
+  .header-inner {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    background: var(--white);
-    box-shadow: 0 8px 32px var(--shadow), 0 2px 8px rgba(91,138,114,0.1);
-    margin-bottom: 1.8rem;
-    animation: breathe 4s ease-in-out infinite;
-  }
-
-  @keyframes breathe {
-    0%, 100% { transform: scale(1); box-shadow: 0 8px 32px var(--shadow); }
-    50% { transform: scale(1.05); box-shadow: 0 12px 40px rgba(91,138,114,0.15); }
-  }
-
-  .hero-icon svg {
-    width: 40px;
-    height: 40px;
-    color: var(--accent);
-  }
-
-  .hero-label {
-    display: inline-block;
+    gap: 0.4rem;
+    font-family: 'Shippori Mincho', serif;
     font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: var(--accent);
-    background: var(--accent-light);
-    padding: 0.35rem 1rem;
-    border-radius: 100px;
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.12em;
+  }
+  .header-inner::before,
+  .header-inner::after {
+    content: '';
+    width: 16px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ── HERO 薬袋ラベル ── */
+  .hero { padding: 1.5rem 1.25rem 2rem; }
+
+  .medicine-label {
+    max-width: 360px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2rem 1.5rem 1.8rem;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .medicine-label::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 8px; right: 8px; bottom: 8px;
+    border: 1px solid var(--bg-label);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+  .label-stamp {
+    position: absolute;
+    top: 18px; right: 18px;
+    width: 38px; height: 38px;
+    border: 2px solid var(--brown-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 0.6rem;
+    color: var(--brown);
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    transform: rotate(-12deg);
+  }
+  .label-category {
+    display: inline-block;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--brown);
+    border: 1px solid var(--brown-light);
+    padding: 0.2rem 0.8rem;
+    border-radius: 2px;
     margin-bottom: 1.2rem;
   }
-
-  .hero h1 {
+  .label-title {
     font-family: 'Zen Old Mincho', serif;
-    font-size: 1.65rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.6rem;
+    line-height: 1.55;
+    letter-spacing: 0.06em;
     color: var(--text);
+    margin-bottom: 0.4rem;
   }
-
-  .hero h1 em {
-    font-style: normal;
-    color: var(--accent-dark);
-  }
-
-  .hero-sub {
-    font-size: 0.92rem;
-    color: var(--text-light);
+  .label-title em { font-style: normal; color: var(--green); }
+  .label-subtitle {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.82rem;
+    color: var(--text-mid);
     line-height: 1.8;
-    margin-bottom: 2rem;
+    margin-bottom: 1.3rem;
   }
-
-  .hero-price {
+  .label-divider {
+    width: 40px; height: 1px;
+    background: var(--line);
+    margin: 0 auto 1.2rem;
+  }
+  .label-desc {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+  .label-price {
     display: inline-flex;
     align-items: baseline;
     gap: 0.3rem;
-    background: var(--white);
-    padding: 0.6rem 1.4rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px var(--shadow);
-    margin-bottom: 2rem;
+    background: var(--green-pale);
+    border: 1px solid var(--green-light);
+    padding: 0.5rem 1.4rem;
+    border-radius: 3px;
   }
-
-  .hero-price .num {
+  .label-price .yen {
     font-family: 'Zen Old Mincho', serif;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent-dark);
+    color: var(--green);
   }
+  .label-price .unit { font-size: 0.72rem; color: var(--text-light); }
 
-  .hero-price .unit {
-    font-size: 0.82rem;
-    color: var(--text-light);
+  /* ── HERB BORDER ── */
+  .herb-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 0;
+    color: var(--line);
   }
+  .herb-border .leaf { font-size: 0.65rem; opacity: 0.4; }
+  .herb-border .line-seg { width: 30px; height: 1px; background: var(--line); opacity: 0.5; }
 
-  .scroll-hint {
-    position: relative;
-    z-index: 1;
-    margin-top: 1rem;
-    font-size: 0.75rem;
-    color: var(--text-light);
-    opacity: 0.6;
-    animation: bounce 2s ease-in-out infinite;
-  }
+  /* ── SYMPTOMS ── */
+  .symptom-section { padding: 2rem 1.25rem; }
 
-  .scroll-hint::after {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 28px;
-    background: var(--text-light);
-    margin: 0.5rem auto 0;
-    opacity: 0.3;
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(5px); }
-  }
-
-  /* ── SECTIONS ── */
-  section {
-    padding: 3rem 1.5rem;
-    max-width: 440px;
+  .symptom-card {
+    max-width: 360px;
     margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    margin-bottom: 0.8rem;
-    text-transform: uppercase;
-  }
-
-  .section-title {
-    font-family: 'Zen Old Mincho', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    color: var(--text);
-  }
-
-  /* ── PAIN POINTS ── */
-  .pain-section {
     background: var(--white);
-    border-radius: 20px;
-    margin: -1.5rem 1rem 0;
-    padding: 2.5rem 1.5rem;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 4px 24px var(--shadow);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.8rem 1.3rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
-
-  .pain-item {
+  .symptom-heading {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.03em;
+  }
+  .symptom-sub {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.08em;
+  }
+  .symptom-list { list-style: none; text-align: left; }
+  .symptom-list li {
     display: flex;
     align-items: flex-start;
-    gap: 0.8rem;
-    padding: 0.7rem 0;
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.7;
+    gap: 0.7rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px dotted var(--bg-label);
+    font-size: 0.84rem;
+    color: var(--text-mid);
+    line-height: 1.65;
   }
-
-  .pain-item .dot {
+  .symptom-list li:last-child { border-bottom: none; }
+  .symptom-list .check {
     flex-shrink: 0;
-    width: 6px;
-    height: 6px;
-    background: var(--warm);
-    border-radius: 50%;
-    margin-top: 0.6rem;
-  }
-
-  .pain-lead {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text);
-    text-align: center;
-    margin-bottom: 1.2rem;
-    line-height: 1.8;
-  }
-
-  /* ── HOW IT WORKS ── */
-  .steps {
-    counter-reset: step;
-  }
-
-  .step {
+    width: 16px; height: 16px;
+    border: 1.5px solid var(--line);
+    border-radius: 3px;
+    margin-top: 2px;
     position: relative;
-    padding-left: 3.2rem;
-    padding-bottom: 2rem;
-    border-left: 2px solid var(--accent-light);
-    margin-left: 0.8rem;
+    background: var(--rx-bg);
   }
-
-  .step:last-child {
-    border-left-color: transparent;
-    padding-bottom: 0;
-  }
-
-  .step::before {
-    counter-increment: step;
-    content: counter(step);
+  .symptom-list .check::after {
+    content: '✓';
     position: absolute;
-    left: -14px;
-    top: 0;
-    width: 28px;
-    height: 28px;
-    background: var(--accent);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.78rem;
-    font-weight: 700;
+    top: -2px; left: 1px;
+    font-size: 0.7rem;
+    color: var(--green);
+    opacity: 0.5;
   }
-
-  .step-title {
-    font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: 0.3rem;
+  .symptom-footer {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--bg-label);
+    font-size: 0.82rem;
     color: var(--text);
+    line-height: 1.85;
   }
+  .symptom-footer strong { color: var(--green); font-weight: 600; }
 
-  .step-desc {
-    font-size: 0.85rem;
+  /* ── FLOW ── */
+  .flow-section { padding: 2rem 1.25rem; background: var(--bg-herb); }
+  .flow-inner { max-width: 360px; margin: 0 auto; }
+  .flow-title {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.05em;
+  }
+  .flow-title-sub {
+    font-size: 0.7rem;
     color: var(--text-light);
-    line-height: 1.75;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
   }
-
-  .step-note {
+  .flow-step {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.2rem 1rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+  .flow-step-num {
+    position: absolute;
+    top: -8px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: var(--white);
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    padding: 0.15rem 0.7rem;
+    border-radius: 2px;
+  }
+  .flow-step-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+  }
+  .flow-step-title .icon { display: inline-block; margin-right: 0.3rem; opacity: 0.7; }
+  .flow-step-desc { font-size: 0.78rem; color: var(--text-light); line-height: 1.8; }
+  .flow-step-tag {
     display: inline-block;
-    font-size: 0.75rem;
-    color: var(--accent);
-    background: var(--accent-light);
-    padding: 0.2rem 0.6rem;
-    border-radius: 6px;
+    font-size: 0.68rem;
+    color: var(--brown);
+    background: var(--cream);
+    border: 1px solid rgba(139,111,78,0.15);
+    padding: 0.15rem 0.55rem;
+    border-radius: 3px;
     margin-top: 0.4rem;
   }
+  .flow-connector { display: flex; justify-content: center; color: var(--line); font-size: 0.7rem; margin: -0.2rem 0; }
 
-  /* ── WHY IT WORKS ── */
-  .why-section {
-    background: linear-gradient(180deg, var(--accent-light) 0%, var(--bg) 100%);
-    border-radius: 20px;
-    padding: 2.5rem 1.5rem;
-    margin: 0 -0.5rem;
+  /* ── WHY ── */
+  .why-section { padding: 2rem 1.25rem; }
+  .why-card {
+    max-width: 360px;
+    margin: 0 auto;
+    background: var(--green-pale);
+    border: 1px solid rgba(74,103,65,0.12);
+    border-radius: 4px;
+    padding: 1.8rem 1.3rem;
   }
-
-  .why-text {
-    font-size: 0.9rem;
-    color: var(--text);
-    line-height: 2;
-  }
-
-  .why-text strong {
-    color: var(--accent-dark);
+  .why-heading {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 1.05rem;
     font-weight: 700;
+    color: var(--green);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.03em;
   }
-
+  .why-heading-sub { font-size: 0.7rem; color: var(--text-light); letter-spacing: 0.1em; margin-bottom: 1.2rem; }
+  .why-text { font-size: 0.84rem; color: var(--text-mid); line-height: 2; }
   .why-quote {
     font-family: 'Zen Old Mincho', serif;
-    font-size: 1.1rem;
-    color: var(--accent-dark);
-    text-align: center;
-    padding: 1.5rem 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--green);
     line-height: 1.8;
-    border-top: 1px solid rgba(91,138,114,0.15);
-    border-bottom: 1px solid rgba(91,138,114,0.15);
-    margin: 1.5rem 0;
+    padding: 1.2rem 0;
+    margin: 1rem 0;
+    border-top: 1px solid rgba(74,103,65,0.15);
+    border-bottom: 1px solid rgba(74,103,65,0.15);
+    letter-spacing: 0.04em;
   }
 
   /* ── PROFILE ── */
-  .profile {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  .profile-section { padding: 1.5rem 1.25rem 2rem; }
+  .profile-card {
+    max-width: 360px;
+    margin: 0 auto;
     background: var(--white);
-    padding: 1.2rem;
-    border-radius: 14px;
-    box-shadow: 0 2px 12px var(--shadow);
-    margin-top: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.5rem 1.3rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
-
+  .profile-label {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--brown);
+    margin-bottom: 0.8rem;
+  }
   .profile-avatar {
-    flex-shrink: 0;
-    width: 56px;
-    height: 56px;
+    width: 60px; height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-light), var(--warm-light));
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--bg-herb);
+    border: 2px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
     font-family: 'Zen Old Mincho', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--accent-dark);
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--green);
+    margin: 0 auto 0.8rem;
   }
-
-  .profile-info {
-    font-size: 0.8rem;
-    color: var(--text-light);
-    line-height: 1.7;
-  }
-
   .profile-name {
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1rem; font-weight: 600;
     color: var(--text);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.08em;
+  }
+  .profile-title { font-size: 0.72rem; color: var(--text-light); margin-bottom: 0.6rem; }
+  .profile-bio { font-size: 0.78rem; color: var(--text-mid); line-height: 1.85; }
+  .profile-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem; margin-top: 0.8rem; }
+  .profile-tag {
+    font-size: 0.65rem;
+    color: var(--text-light);
+    background: var(--bg);
+    border: 1px solid var(--bg-label);
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
   }
 
   /* ── CTA ── */
-  .cta-section {
-    text-align: center;
-    padding: 2.5rem 1.5rem 4rem;
-  }
-
-  .cta-message {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    line-height: 1.9;
-    margin-bottom: 1.8rem;
-  }
-
-  .cta-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--white);
-    border: 2px dashed rgba(91,138,114,0.3);
-    border-radius: 14px;
-    padding: 1.2rem 1.5rem;
-    max-width: 320px;
+  .cta-section { padding: 2rem 1.25rem 2.5rem; background: var(--bg-herb); }
+  .cta-card {
+    max-width: 360px;
     margin: 0 auto;
-    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.8rem 1.3rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
-
-  .cta-badge span {
-    font-size: 0.9rem;
-    font-weight: 700;
+  .cta-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--green-pale);
+    border: 1.5px solid var(--green-light);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .cta-icon svg { width: 22px; height: 22px; color: var(--green); }
+  .cta-message {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.92rem;
     color: var(--text);
-    line-height: 1.7;
+    line-height: 2;
+    margin-bottom: 1.2rem;
   }
-
-  .cta-sub {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    margin-top: 0.8rem;
-    opacity: 0.7;
+  .cta-badge {
+    background: var(--rx-bg);
+    border: 1px dashed var(--line);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
   }
+  .cta-badge-text { font-size: 0.85rem; font-weight: 600; color: var(--green); line-height: 1.7; }
+  .cta-note { font-size: 0.72rem; color: var(--text-light); line-height: 1.7; }
 
   /* ── FOOTER ── */
-  .footer {
-    text-align: center;
-    padding: 1.5rem;
-    font-size: 0.7rem;
+  .footer { padding: 1.2rem; border-top: 1px solid var(--bg-label); }
+  .footer-text {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.68rem;
     color: var(--text-light);
-    opacity: 0.5;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    letter-spacing: 0.1em;
   }
 
-  /* ── ANIMATIONS ── */
-  .fade-up {
+  /* ── Animations ── */
+  .fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
-
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    padding: 1rem 0;
-    color: var(--accent);
-    opacity: 0.3;
-  }
-
-  .divider::before, .divider::after {
-    content: '';
-    width: 40px;
-    height: 1px;
-    background: currentColor;
-  }
-
-  .divider svg {
-    width: 14px;
-    height: 14px;
-  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<div class="header">
+  <div class="header-inner">三条健康堂接骨院</div>
+</div>
+
 <div class="hero">
-  <div class="hero-content">
-    <div class="hero-icon">
+  <div class="medicine-label fade-in">
+    <div class="label-stamp">処方</div>
+    <div class="label-category">心身調整</div>
+    <h1 class="label-title">LINEに声を<br>吹き込むだけ。<br><em>頭の中の<br>ごちゃごちゃ整理室</em></h1>
+    <div class="label-divider"></div>
+    <p class="label-subtitle">まとまらなくていい。<br>その声を、そのまま置いていってください。</p>
+    <p class="label-desc">あなたの「声の塊」を、AI技術と<br>30年の東洋医学の知見で<br>丁寧に分析・整理します。</p>
+    <div class="label-price">
+      <span class="unit">1回</span>
+      <span class="yen">4,000</span>
+      <span class="unit">円（税込）</span>
+    </div>
+  </div>
+</div>
+
+<div class="herb-border"><span class="line-seg"></span><span class="leaf">❋</span><span class="line-seg"></span></div>
+
+<div class="symptom-section">
+  <div class="symptom-card fade-in">
+    <div class="symptom-heading">こんな症状、ありませんか？</div>
+    <div class="symptom-sub">── 頭のオーバーヒート度チェック ──</div>
+    <ul class="symptom-list">
+      <li><span class="check"></span><span>「このままでいいのかな」と<br>漠然とした不安がある</span></li>
+      <li><span class="check"></span><span>家族・親・子どもの進路…<br>誰にも相談できない悩みがある</span></li>
+      <li><span class="check"></span><span>職場の人間関係で<br>言葉にできないすり減りを感じる</span></li>
+      <li><span class="check"></span><span>やるべきことが山積みで<br>どこから手をつければいいか分からない</span></li>
+      <li><span class="check"></span><span>休んでいるはずなのに<br>頭の中がずっとざわざわしている</span></li>
+    </ul>
+    <div class="symptom-footer">
+      頭の「空き容量」がゼロになると<br>体までガチガチに力みます。<br>
+      <strong>その重さ、声に出すだけで軽くなります。</strong>
+    </div>
+  </div>
+</div>
+
+<div class="herb-border"><span class="line-seg"></span><span class="leaf">❋</span><span class="line-seg"></span></div>
+
+<div class="flow-section">
+  <div class="flow-inner fade-in">
+    <div class="flow-title">ご利用の流れ</div>
+    <div class="flow-title-sub">── 3ステップで完了 ──</div>
+    <div class="flow-step">
+      <div class="flow-step-num">壱</div>
+      <div class="flow-step-title"><span class="icon">🎙</span>声を吹き込む</div>
+      <div class="flow-step-desc">このLINEのマイクボタンを長押しして<br>モヤモヤをそのまま話してください。<br>まとまっていなくてOKです。</div>
+      <div class="flow-step-tag">最長30分 ／ 複数回に分けてもOK</div>
+    </div>
+    <div class="flow-connector">▾</div>
+    <div class="flow-step">
+      <div class="flow-step-num">弐</div>
+      <div class="flow-step-title"><span class="icon">💳</span>お預かり＆決済</div>
+      <div class="flow-step-desc">メッセージ確認後<br>クレジットカード払い（Square）の<br>URLをお送りします。</div>
+    </div>
+    <div class="flow-connector">▾</div>
+    <div class="flow-step">
+      <div class="flow-step-num">参</div>
+      <div class="flow-step-title"><span class="icon">📋</span>処方箋をお届け</div>
+      <div class="flow-step-desc">悩みをきれいに整理した<strong>見取り図</strong>と<br>今日からできる<strong>次の一手</strong>を<br>文章でお返しします。</div>
+    </div>
+  </div>
+</div>
+
+<div class="why-section">
+  <div class="why-card fade-in">
+    <div class="why-heading">なぜ、声を出すだけで<br>解決に向かうのか？</div>
+    <div class="why-heading-sub">── 処方の考え方 ──</div>
+    <p class="why-text">人は問題が絡まり合うと<br>フリーズしてしまいます。</p>
+    <div class="why-quote">脳が悩みの構造を<br>正確に理解するだけで、<br>糸はスッと解けはじめます。</div>
+    <p class="why-text">絡まっていた糸の正体が分かれば<br>対処法は驚くほど簡単に見えてくる。<br><br>最新のAI技術と<br>30年間の臨床で培った<br>心身の繋がりの視点で<br>丁寧に分析・整理いたします。</p>
+  </div>
+</div>
+
+<div class="herb-border"><span class="line-seg"></span><span class="leaf">❋</span><span class="line-seg"></span></div>
+
+<div class="profile-section">
+  <div class="profile-card fade-in">
+    <div class="profile-label">── 調剤者 ──</div>
+    <div class="profile-avatar">谷</div>
+    <div class="profile-name">谷 弘誠</div>
+    <div class="profile-title">柔道整復師｜三条健康堂接骨院 院長</div>
+    <p class="profile-bio">香川県高松市にて30年間、<br>延べ1万人以上の施術を行う。</p>
+    <div class="profile-tags">
+      <span class="profile-tag">東洋医学</span>
+      <span class="profile-tag">手技療法</span>
+      <span class="profile-tag">心身調整</span>
+      <span class="profile-tag">AI活用</span>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="cta-card fade-in">
+    <div class="cta-icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
         <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
@@ -486,139 +533,23 @@
         <line x1="8" y1="23" x2="16" y2="23"/>
       </svg>
     </div>
-    <div class="hero-label">三条健康堂の新メニュー</div>
-    <h1>LINEに声を<br>吹き込むだけ。<br><em>頭の中の<br>ごちゃごちゃ整理室</em></h1>
-    <p class="hero-sub">まとまらなくていい。<br>その声を、そのまま置いていってください。</p>
-    <div class="hero-price">
-      <span class="unit">1回</span>
-      <span class="num">4,000</span>
-      <span class="unit">円（税込）</span>
+    <p class="cta-message">ひとりで抱え込まなくて大丈夫。<br>まずはその重たい荷物、<br>LINEにポンと置いていってください。</p>
+    <div class="cta-badge">
+      <div class="cta-badge-text">このLINEのトーク画面から<br>マイクボタンで声を送るだけです</div>
     </div>
+    <p class="cta-note">文章を書く必要はありません。声だけでOKです。</p>
   </div>
-  <div class="scroll-hint">くわしく見る</div>
-</div>
-
-<!-- PAIN POINTS -->
-<div class="pain-section fade-up">
-  <p class="pain-lead">こんなふうに、<br>頭の中がざわついていませんか？</p>
-
-  <div class="pain-item">
-    <span class="dot"></span>
-    <span>「このままでいいのかな」と<br>漠然とした不安がある</span>
-  </div>
-  <div class="pain-item">
-    <span class="dot"></span>
-    <span>家族・親・子どもの進路…<br>誰にも相談できない悩みがある</span>
-  </div>
-  <div class="pain-item">
-    <span class="dot"></span>
-    <span>職場の人間関係で<br>言葉にできないすり減りを感じる</span>
-  </div>
-  <div class="pain-item">
-    <span class="dot"></span>
-    <span>タスクが山積みで<br>どこから手をつければいいか分からない</span>
-  </div>
-  <div class="pain-item">
-    <span class="dot"></span>
-    <span>休んでいるはずなのに<br>頭の中がずっとざわざわしている</span>
-  </div>
-
-  <div class="divider" style="margin-top:1.2rem;">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-  </div>
-
-  <p style="text-align:center; font-size:0.88rem; color:var(--text); line-height:1.9; margin-top:0.5rem;">
-    頭の「空き容量」がゼロになると、<br>
-    体までガチガチに力んでしまいます。<br>
-    <strong style="color:var(--accent-dark);">その重さ、声に出すだけで軽くなります。</strong>
-  </p>
-</div>
-
-<!-- HOW IT WORKS -->
-<section class="fade-up">
-  <div class="section-label">How it works</div>
-  <h2 class="section-title">使い方は、とてもシンプル。</h2>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-title">LINEに声を吹き込む</div>
-      <div class="step-desc">
-        この公式LINEのマイクボタンを長押しして、モヤモヤをそのまま話してください。まとまっていなくてOK。夜中でも、車の中でも。
-      </div>
-      <div class="step-note">1回最長30分 ／ 複数回に分けてもOK</div>
-    </div>
-    <div class="step">
-      <div class="step-title">お預かり＆決済</div>
-      <div class="step-desc">
-        メッセージ確認後、クレジットカード払い（Square）のURLをお送りします。
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-title">「処方箋」をお届け</div>
-      <div class="step-desc">
-        あなたの悩みをきれいに整理した<strong>見取り図</strong>と、今日からできる<strong>次の一手</strong>を文章でお返しします。
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY IT WORKS -->
-<section class="fade-up" style="padding-top:0;">
-  <div class="why-section">
-    <div class="section-label">Why it works</div>
-    <h2 class="section-title">なぜ、声に出すだけで<br>解決に向かうのか？</h2>
-    <p class="why-text">
-      人は問題が絡まり合うとフリーズします。でも実は、<strong>脳が悩みの構造を正確に理解するだけ</strong>で、糸はスッと解けはじめます。
-    </p>
-    <div class="why-quote">
-      絡まっていた糸の正体が分かれば、<br>対処法は驚くほど簡単に見えてくる。
-    </div>
-    <p class="why-text">
-      あなたの「声の塊」を、最新のAI技術と、30年間の臨床で培った心身の繋がりの視点で丁寧に分析・整理します。
-    </p>
-
-    <div class="profile">
-      <div class="profile-avatar">谷</div>
-      <div class="profile-info">
-        <div class="profile-name">谷 弘誠（たに こうせい）</div>
-        柔道整復師。三条健康堂接骨院 院長。<br>高松市にて30年間、延べ1万人以上を施術。
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<div class="cta-section fade-up">
-  <p class="cta-message">
-    ひとりで抱え込まなくて大丈夫です。<br>
-    まずはその重たい荷物、<br>
-    LINEにポンと置いていってください。
-  </p>
-  <div class="cta-badge">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:var(--accent);margin-bottom:0.3rem;">
-      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-      <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-    </svg>
-    <span>このLINEのトーク画面から<br>マイクボタンで声を送るだけです</span>
-  </div>
-  <p class="cta-sub">文章を書く必要はありません。声だけでOKです。</p>
 </div>
 
 <div class="footer">
-  三条健康堂接骨院｜香川県高松市
+  <div class="footer-text">三条健康堂接骨院｜香川県高松市</div>
 </div>
 
 <script>
-  // Intersection Observer for fade-up animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 </script>
 
 </body>
